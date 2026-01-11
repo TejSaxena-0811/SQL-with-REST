@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All users</title>
+</head>
+<body>
+    <a href="http://localhost:3000/user/new"><button>create new user</button></a>
+    <br>
+    <h1>All our users</h1>
+    <ul>
+        <% for(let user of users){ %>
+            <li><b>id: </b><%= user.id %></li>
+            <li><b>username: </b><%= user.username %></li>
+            <li><b>email: </b><%= user.email %></li>
+            <li><b>password: </b><%= user.password %></li>
+            <br>
+            <a href="http://localhost:3000/user/<%= user.id %>/edit"><button>edit</button></a>
+            <br><br>
+            <form method="post" action="/user/<%= user.id %>?_method=DELETE">
+                <button>delete</button>
+            </form>
+            <br>
+            <hr>
+        <% } %>
+    </ul>
+</body>
+</html>
